@@ -35,3 +35,9 @@ toy_app-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Ignore Apple generated .DS_Store file
+.DS_Store
+
+# Visual Studio Code Elixir LS build artifacts
+.elixir_ls/
+  .
