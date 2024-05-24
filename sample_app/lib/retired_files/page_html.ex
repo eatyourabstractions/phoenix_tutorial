@@ -1,10 +1,10 @@
-defmodule ToyAppWeb.PageHTML do
+defmodule SampleAppWeb.PageHTML do
   @moduledoc """
   This module contains pages rendered by PageController.
 
   See the `page_html` directory for all templates available.
   """
-  use ToyAppWeb, :html
+  use SampleAppWeb, :html
 
-  embed_templates "static_page_html/*"
+  embed_templates "page_html/*"
 end
