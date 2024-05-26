@@ -58,7 +58,8 @@ defmodule SampleApp.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
-      {:html_assertion, "0.1.5", only: :test}
+      {:html_assertion, "0.1.5", only: :test},
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false}
     ]
   end
 
