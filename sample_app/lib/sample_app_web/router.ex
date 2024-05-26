@@ -1,5 +1,6 @@
 defmodule SampleAppWeb.Router do
   use SampleAppWeb, :router
+  import Phoenix.LiveView.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -24,6 +25,18 @@ defmodule SampleAppWeb.Router do
     get "/static_pages/help", StaticPageController, :help
     get "/static_pages/about", StaticPageController, :about
     get "/static_pages/contact", StaticPageController, :contact
+
+    # E-P-A tutorial: The Plug.conn Struct chapter
+    get "/static_pages/inspect", StaticPageController, :inspect
+    get "/static_pages/playground", StaticPageController, :playground
+
+    # E-P-A tutorial: The Links chapter
+    get "/static_pages/ping", StaticPageController, :ping
+    get "/static_pages/pong", StaticPageController, :pong
+
+     # E-P-A tutorial: The liveview chapter
+    live "/light", LightLive
+
   end
 
   # Other scopes may use custom stacks.
