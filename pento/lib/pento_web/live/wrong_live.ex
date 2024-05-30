@@ -7,7 +7,7 @@ defmodule PentoWeb.WrongLive do
      assign(socket,
         score: 0,
         message: "Make a guess: ",
-        session_id: session["live_socket_id"],
+        session_id: session["live_socket_id"]
         )}
   end
 
