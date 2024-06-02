@@ -7,6 +7,7 @@ defmodule Pento.Catalog.Product do
     field :description, :string
     field :unit_prince, :float
     field :sku, :integer
+    field :image_upload, :string
 
     timestamps(type: :utc_datetime)
   end
@@ -14,7 +15,7 @@ defmodule Pento.Catalog.Product do
   @doc false
   def changeset(product, attrs) do
     product
-    |> cast(attrs, [:name, :description, :unit_prince, :sku])
+    |> cast(attrs, [:name, :description, :unit_prince, :sku, :image_upload])
     |> validate_required([:name, :description, :unit_prince, :sku])
     |> unique_constraint(:sku)
     |> validate_number(:unit_prince, greater_than: 0.0)
