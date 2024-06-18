@@ -24,4 +24,21 @@ defmodule PentoWeb.DemographicLive.Form do
 
   end
 
+  def handle_event("save", %{"demographic" => demographic_params}, socket) do
+    IO.puts("Handling save event and saving demographic record...")
+    IO.inspect(demographic_params)
+    {:noreply, socket |> save_demographic(demographic_params) }
+
+  end
+
+  defp save_demographic(socket, demographic_params) do
+    case Survey.create_demographic(demographic_params) do
+      {:ok, demographic} ->
+        send(self(), {:created_demographic, demographic}) # send to the parent view
+        socket
+      {:error, %Ecto.Changeset{} = changeset } ->
+        assign(socket, changeset)
+    end
+  end
+
 end

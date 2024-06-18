@@ -11,7 +11,7 @@
 
 -->
 
-<%= if !@demographic do %>
+<%= if @demographic do %>
    <DemographicLive.Show.details demographic={@demographic} />
 <% else %>
    <.live_component 
