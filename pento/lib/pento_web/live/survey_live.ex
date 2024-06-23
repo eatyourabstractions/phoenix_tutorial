@@ -12,7 +12,7 @@ defmodule PentoWeb.SurveyLive do
   # alias __MODULE__.Component
 
   def mount(_params, _session, socket) do
-    {:ok, socket |> assign_demographic |> assign_products }
+    {:ok, socket |> assign_demographic() |> assign_products() }
   end
 
   defp assign_products(%{assigns: %{current_user: current_user}} = socket) do
@@ -40,6 +40,7 @@ defmodule PentoWeb.SurveyLive do
 
   end
 
+
   def handle_demographic_created(socket, demographic) do
     socket
       |> put_flash(:info, "Demographic created succesfully")
@@ -48,7 +49,7 @@ defmodule PentoWeb.SurveyLive do
 
 
   def handle_rating_created(%{assigns: %{products: products}} = socket, updated_product, product_index) do
-    IO.puts("handle_rating_created #{products}")
+    # IO.inspect(products)
     socket
       |> put_flash(:info, "Ratting submitted succesfully")
       |> assign(:products, List.replace_at(products, product_index, updated_product))

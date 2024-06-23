@@ -27,7 +27,7 @@ defmodule PentoWeb.RatingLive.Index do
   def heading(assigns) do
     ~H"""
       <h2 class="font-medium text-2xl">
-        Ratings <%= if ratings_complete?(@products), do: '<span>&#x2713</span>'  %>
+        Ratings <%= if ratings_complete?(@products), do: Phoenix.HTML.raw("<span>&#x2713</span>")  %>
       </h2>
     """
   end

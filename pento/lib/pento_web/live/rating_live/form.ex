@@ -30,7 +30,10 @@ defmodule PentoWeb.RatingLive.Form do
   end
 
   def save_rating(%{assigns: %{product_index: product_index, product: product}} = socket, rating_params) do
-
+    # IO.inspect(rating_params)
+    # %{"stars" => stars} = rating_params
+    # {integer_stars, _} = Integer.parse(stars)
+    # params = %{rating_params | "stars" => integer_stars}
     case Survey.create_rating(rating_params) do
       {:ok, rating} ->
         product = %{product | ratings: [rating]}

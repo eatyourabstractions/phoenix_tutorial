@@ -17,11 +17,11 @@ defmodule PentoWeb.RatingLive.Show do
   end
 
   def filled_stars(stars) do
-    List.duplicate("&#x2605;", stars)
+    List.duplicate("*" , stars)
   end
 
   def unfilled_stars(stars) do
-    List.duplicate("&#x2606;", 5 - stars)
+    List.duplicate("", 5 - stars)
   end
 
 end

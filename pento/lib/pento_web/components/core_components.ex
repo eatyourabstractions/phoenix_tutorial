@@ -330,6 +330,7 @@ defmodule PentoWeb.CoreComponents do
 
   def input(%{type: "rating"} = assigns) do
     ~H"""
+
       <select
         id={@id}
         name={@name}
@@ -340,6 +341,7 @@ defmodule PentoWeb.CoreComponents do
         <option :if={@prompt} value=""><%= @prompt %></option>
         <%= Phoenix.HTML.Form.options_for_select(@options, @value)%>
       </select>
+
 
     """
   end
