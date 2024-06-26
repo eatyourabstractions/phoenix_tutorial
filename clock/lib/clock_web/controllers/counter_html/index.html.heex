@@ -1,0 +1,22 @@
+<.header>
+  Listing Counter
+  <:actions>
+    <.link href={~p"/counter/new"}>
+      <.button>New Counter</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="counter" rows={@counter_collection} row_click={&JS.navigate(~p"/counter/#{&1}")}>
+  <:action :let={counter}>
+    <div class="sr-only">
+      <.link navigate={~p"/counter/#{counter}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/counter/#{counter}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={counter}>
+    <.link href={~p"/counter/#{counter}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

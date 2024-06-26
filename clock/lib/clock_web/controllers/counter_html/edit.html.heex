@@ -1,0 +1,8 @@
+<.header>
+  Edit Counter <%= @counter.id %>
+  <:subtitle>Use this form to manage counter records in your database.</:subtitle>
+</.header>
+
+<.counter_form changeset={@changeset} action={~p"/counter/#{@counter}"} />
+
+<.back navigate={~p"/counter"}>Back to counter</.back>

@@ -1,0 +1,14 @@
+<.header>
+  Counter <%= @counter.id %>
+  <:subtitle>This is a counter record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/counter/#{@counter}/edit"}>
+      <.button>Edit counter</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+</.list>
+
+<.back navigate={~p"/counter"}>Back to counter</.back>

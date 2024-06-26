@@ -3,10 +3,11 @@ defmodule SampleAppWeb.LightLive do
   # use Phoenix.LiveView
 
   def render(assigns) do
+    IO.inspect assigns
     ~H"""
       <h1>The light is <%= @light_bulb_status %>.</h1>
-      <button phx-click="on" class={"btn btn-success #{@on_button_status}"} >On</button>
-      <button phx-click="off" class={"btn btn-primary #{@off_button_status}"}  >Off</button>
+      <button phx-click="on" class={["btn btn-success", @on_button_status]} >On</button>
+      <button phx-click="off" class={["btn btn-primary", @off_button_status]}  >Off</button>
     """
   end
 
@@ -15,7 +16,7 @@ defmodule SampleAppWeb.LightLive do
       socket
       |> assign(:light_bulb_status, "off")
       |> assign(:on_button_status, "")
-      |> assign(:off_button_status, "disabled")
+      |> assign(:off_button_status, ":disabled")
 
     {:ok, socket}
   end
