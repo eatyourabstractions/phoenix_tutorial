@@ -1,5 +1,44 @@
 <section>
     <h2 class="font-light text-2xl">Survey results</h2>
+    <div id="survey-results-component">
+        <div class="container">
+            <!-- gender filter -->
+            <.form
+                for={@form}
+                phx-change="gender-filter"
+                phx-target={@myself}
+                id="gender-form"
+            >
+            <label>By gender: </label>
+            <select name="gender_filter" id="gender_filter">
+                <%= for gender <- ["all", "female", "male", "other", "prefer not to say"] do %>
+                    <option value={gender} selected={@form[:gender_filter] == gender}>
+                        <%= gender%>
+                    </option>
+                <% end %>
+            </select>
+            </.form>
+
+            <!-- age filter -->
+            <.form
+                for={@form}
+                phx-change="age_group_filter"
+                phx-target={@myself}
+                id="age-group-form"
+            >
+            <label>By age group</label>
+            <select name="age_group_filter" id="age_group_filter">
+                <%= for age_group <- ["all", "18 and under", "18 to 25", "25 to 35", "35 and up"] do %>
+                    <option value={age_group} selected={@form[:age_group_filter] == age_group}>
+                        <%= age_group %>
+                    </option>
+                <% end %>
+
+            </select>
+            </.form>
+
+        </div>
+    </div>
     <div id="survey-results-chart">
         <%= @chart_svg %>
     </div>
